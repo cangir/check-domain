@@ -18,3 +18,4 @@ phpcs.xml.dist
 .phpcs-cache
 /css/
 composer.lock
+yarn.lock
