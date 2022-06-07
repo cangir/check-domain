@@ -1,7 +1,7 @@
 // Defining requirements
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 var babel = require('gulp-babel');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
@@ -18,6 +18,8 @@ var compass = require('gulp-compass');
 // Configuration file to keep your code DRY
 var cfg = require('./gulpconfig.json');
 var paths = cfg.paths;
+
+
 
 gulp.task(
     'compass', function () {
@@ -348,7 +350,7 @@ gulp.task(
                     // '!CHANGELOG.md',
                     // '!./samples/**',
                     // '!./views/**',
-                    // '!./dino-framework.php',
+                    // '!./check-domain.php',
                     // '!./package.json',
                     '!*.+(lock)'
                 ],

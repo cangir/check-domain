@@ -2,8 +2,8 @@
 /**
  * Silence is Golden
  *
- * @author      Dinoloper <info@dinoloper.com>
- * @package     Plugin_Starter
+ * @author      Ahmet Cangir <info@cangir.de>
+ * @package     Check_Domain
  * @version     1.0.0
  */
 

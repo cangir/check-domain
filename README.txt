@@ -1,7 +1,7 @@
-=== Plugin Starter ===
+=== Check Domain ===
 Contributors: @dinoloper
-Donate link: http://example.com/
-Tags: comments, spam
+Donate link: http://cangir.de
+Tags: domain
 Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 4.3

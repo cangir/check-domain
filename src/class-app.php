@@ -5,12 +5,12 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @author      Dinoloper <info@dinoloper.com>
- * @package     Plugin_Starter
+ * @author      Ahmet Cangir <info@cangir.de>
+ * @package     Check_Domain
  * @version     1.0.0
  */
 
-namespace PluginStarter;
+namespace CheckDomain;
 
 defined( 'ABSPATH' ) || exit; // Cannot access directly.
 
@@ -70,7 +70,7 @@ class App {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'plugin-name';
+		$this->plugin_name = 'check-domain';
 		$this->version     = '1.0.0';
 		$this->loader      = new utils\Loader();
 
@@ -90,7 +90,7 @@ class App {
 	 */
 	private function load_dependencies() {
 		$this->require_dir_once( 'src/functions/*' );
-		$this->require_dir_once( 'src/libraries/*/class-**' );
+		$this->require_dir_once( 'src/libraries/class-**' );
 		$this->require_dir_once( 'src/app/*/class-**' );
 	}
 
@@ -122,18 +122,10 @@ class App {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new app\admin\Controller( $this->get_plugin_name(), $this->get_version() );
+		// $plugin_admin = new app\admin\Controller( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
-		$cpt = new \Dinoloper\CPT\Post_Type( 'event' );
-		$cpt->labels(
-			array(
-				'add_new_item' => __( 'Deneme Add Event', 'plugin-name' ),
-			)
-		);
-		$cpt->register();
+		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 	}
 
@@ -151,6 +143,11 @@ class App {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$shortcode = new libraries\Shortcode();
+		$this->loader->add_action( 'init', $shortcode, 'register_shortcodes' );
+		$this->loader->add_action( 'wp_ajax_check_domain_display', $shortcode, 'domain_display_func' );
+		$this->loader->add_action( 'wp_ajax_nopriv_check_domain_display', $shortcode, 'domain_display_func' );
 
 	}
 
@@ -205,7 +202,7 @@ class App {
 	 * @since     1.0.0
 	 */
 	public function require_dir_once( $dir ) {
-		$dir = PLUGIN_STARTER_DIR . $dir;
+		$dir = CHECK_DOMAIN_DIR . $dir;
 		foreach ( glob( "$dir" ) as $path ) {
 			if ( preg_match( '/\.php$/', $path ) ) {
 				require_once $path;  // it's a PHP file so just require it.

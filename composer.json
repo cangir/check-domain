@@ -1,6 +1,6 @@
 {
-	"name" : "cangir/plugin-starter",
-	"description" : "The description of your plugin.",
+	"name" : "cangir/check-domain",
+	"description" : "Simple domain checker.",
 	"type" : "wordpress-plugin",
 	"keywords" : [ "wordpress" ],
 	"license" : "GPL-2.0+",
@@ -13,12 +13,12 @@
 	],
 	"autoload" : {
 		"psr-4" : {
-			"PluginStarter\\" : "src"
+			"CheckDomain\\" : "src"
 		}
 	},
-	"homepage" : "https://github.com/cangir/plugin-starter",
+	"homepage" : "https://github.com/cangir/check-domain",
 	"require" : {
-		"php" : ">=5.3.0"
+        "php": ">=7.0"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-master",
@@ -38,8 +38,8 @@
 		]
 	  },
 	  "support": {
-		"issues": "https://github.com/cangir/plugin-starter/issues",
-		"source": "https://github.com/cangir/plugin-starter"
+		"issues": "https://github.com/cangir/check-domain/issues",
+		"source": "https://github.com/cangir/check-domain"
 	  },
 	  "config": {
 		"process-timeout": 0

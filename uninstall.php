@@ -18,12 +18,12 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @package    PluginStarter
+ * @package    CheckDomain
  * @link       http://example.com
  * @since      1.0.0
  */
 
-namespace PluginStarter;
+namespace CheckDomain;
 
 // If uninstall not called from WordPress, then exit.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

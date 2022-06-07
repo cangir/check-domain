@@ -1,44 +1,43 @@
 {
-    "name": "dino-framework",
+    "name": "check-domain",
     "version": "0.0.1",
-    "description": "Dino Framework",
+    "description": "Check Domain",
     "repository": {
         "type": "git",
-        "url": "https://github.com/cangir/dino-framework.git"
+        "url": "https://github.com/cangir/check-domain.git"
     },
     "bugs": {
-        "url": "https://github.com/cangir/dino-framework/issues"
-      },
-    "homepage": "https://github.com/cangir/dino-framework",
+        "url": "https://github.com/cangir/check-domain/issues"
+    },
+    "homepage": "https://github.com/cangir/check-domain",
     "keywords": [
         "wordpress",
-        "theme",
-        "framework",
-        "bootstrap",
-        "underscores"
+        "plugin"
     ],
     "license": "GPL-2.0",
-    "dependencies": {},
     "devDependencies": {
-        "@babel/core": "^7.10.2",
-        "@babel/preset-env": "^7.10.2",
-        "autoprefixer": "^9.8.0",
-        "bootstrap": "^4.5.0",
-        "browser-sync": "^2.26.7",
-        "del": "^5.1.0",
+        "@babel/core": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "autoprefixer": "^10.4.7",
+        "bootstrap": "^5.2.0-beta1",
+        "browser-sync": "^2.27.10",
+        "del": "^6.1.1",
         "font-awesome": "^4.7.0",
+        "compass": "0.1.1",
+        "ruby": "0.6.1",
+        "sass": "1.52.2",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.3.0",
         "gulp-compass": "^2.1.0",
         "gulp-concat": "^2.6.1",
-        "gulp-imagemin": "^7.1.0",
+        "gulp-imagemin": "^4.1.0",
         "gulp-plumber": "^1.2.1",
-        "gulp-postcss": "^8.0.0",
+        "gulp-postcss": "^9.0.1",
         "gulp-rename": "^2.0.0",
-        "gulp-replace": "^1.0.0",
-        "gulp-sass": "^4.1.0",
-        "gulp-sourcemaps": "^2.6.5",
+        "gulp-replace": "^1.1.3",
+        "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^3.0.0",
         "gulp-uglify": "^3.0.2"
     }
 }

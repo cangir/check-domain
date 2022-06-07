@@ -2,12 +2,12 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @author      Dinoloper <info@dinoloper.com>
- * @package     Plugin_Starter
+ * @author      Ahmet Cangir <info@cangir.de>
+ * @package     Check_Domain
  * @version     1.0.0
  */
 
-namespace PluginStarter\app\front;
+namespace CheckDomain\app\front;
 
 defined( 'ABSPATH' ) || exit; // Cannot access directly.
 
@@ -67,15 +67,15 @@ class Controller {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in PluginStarter_Loader as all of the hooks are defined
+		 * defined in CheckDomain_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The PluginStarter_Loader will then create the relationship
+		 * The CheckDomain_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, PLUGIN_STARTER_URL . 'assets/css/style.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, CHECK_DOMAIN_URL . 'assets/css/style.css', array(), $this->version, 'all' );
 
 	}
 
@@ -91,7 +91,7 @@ class Controller {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in PluginStarter_Loader as all of the hooks are defined
+		 * defined in CheckDomain_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
 		 * The NelioABTestin5_Loader will then create the relationship
@@ -99,7 +99,8 @@ class Controller {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, PLUGIN_STARTER_URL . 'assets/js/scripts.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, CHECK_DOMAIN_URL . 'assets/js/scripts.js', array( 'jquery' ), $this->version );
+		wp_localize_script( $this->plugin_name, 'check_domain_ajax', array('ajaxurl' => admin_url( 'admin-ajax.php' ), 'check_domain_nonce' => wp_create_nonce( 'check_domain_nonce' ) ) );
 
 	}
 

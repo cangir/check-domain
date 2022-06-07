@@ -14,7 +14,7 @@
 		"node": "./node_modules",
 		"composer": "./vendor",
 		"dev": "./assets/src",
-		"dist": "../../../../dist/plugins/plugin-starter",
+		"dist": "../../../dist/plugins/check-domain",
 		"distprod": "./dist-product",
 		"vendor": "./assets/vendor"
 	}
