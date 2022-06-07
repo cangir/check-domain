@@ -21,12 +21,40 @@ defined( 'ABSPATH' ) || exit; // Cannot access directly.
  * @author     Ahmet Cangir <info@cangir.de>
  */
 class Whois {
+	/**
+	 * Domain.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $domain    Domain.
+	 */
 	private $domain;
 
+	/**
+	 * TLD.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $tld    TLD.
+	 */
 	private $tld;
 
+	/**
+	 * Sub domain.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $sub_domain    Sub domain.
+	 */
 	private $sub_domain;
 
+	/**
+	 * Servers.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $servers    Servers.
+	 */
 	private $servers;
 
 	/**
@@ -212,7 +240,7 @@ class Whois {
 	}
 
 	/**
-	 * Get Whois info from appropriate server.
+	 * Check if domain is valid.
 	 */
 	public function is_valid() {
 		if (
@@ -232,13 +260,13 @@ class Whois {
 	}
 
 		/**
-	 * Checks if a domain name is valid.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $domain_name Domain name.
-	 * @return bool
-	 * */
+		 * Validate a domain and add .com if query doesn't have tld.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string $domain_name Domain name.
+		 * @return bool
+		 * */
 	public static function validate_domain_name( $domain_name ) {
 		$domain = str_replace( array( 'www.', 'http://', 'https://' ), null, $domain_name );
 		$split  = explode( '.', $domain );

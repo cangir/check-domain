@@ -923,7 +923,10 @@
         "whois.nic.net.sg",
         "Domain Not Found"
     ],
-
+    "com.tr": [
+        "whois.nic.tr",
+        "Domain Not Found"
+    ],
     "com.tw": [
         "whois.twnic.net",
         "No Found"
@@ -3141,7 +3144,7 @@
         "Domain Not Found"
     ],
     "org.tr": [
-        "whois.metu.edu.tr",
+        "whois.nic.tr",
         "No match found"
     ],
     "org.tw": [
