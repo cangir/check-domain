@@ -54,28 +54,11 @@ class Shortcode {
 
 		$home_url    = home_url( '' );
 		$placeholder = esc_attr_x( 'Search Domain', 'placeholder', 'check-domain' );
-		$image       = CHECK_DOMAIN_URL . 'assets/img/load.gif';
+		$image       = CHECK_DOMAIN_URL . 'assets/img/loading.svg';
 		$icon        = apply_filters(
 			'check-domain:search-form:icon',
 			'<svg class="ct-icon" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15"><path d="M14.8,13.7L12,11c0.9-1.2,1.5-2.6,1.5-4.2c0-3.7-3-6.8-6.8-6.8S0,3,0,6.8s3,6.8,6.8,6.8c1.6,0,3.1-0.6,4.2-1.5l2.8,2.8c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C15.1,14.5,15.1,14,14.8,13.7z M1.5,6.8c0-2.9,2.4-5.2,5.2-5.2S12,3.9,12,6.8S9.6,12,6.8,12S1.5,9.6,1.5,6.8z"/></svg>'
 		);
-
-		$content = "<div id='domain-form'>
-			<form method='post' action='./' id='form' class='search-form'>
-	
-				<div class='input-group small'>
-					 <input type='text' class='form-control' autocomplete='off' id='Search' name='domain' >
-						  <span class='input-group-btn'>
-							<button type='submit' class='search-submit' aria-label='Such-Button'>
-								<svg class='ct-icon' aria-hidden='true' width='15' height='15' viewBox='0 0 15 15'><path d='M14.8,13.7L12,11c0.9-1.2,1.5-2.6,1.5-4.2c0-3.7-3-6.8-6.8-6.8S0,3,0,6.8s3,6.8,6.8,6.8c1.6,0,3.1-0.6,4.2-1.5l2.8,2.8c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C15.1,14.5,15.1,14,14.8,13.7z M1.5,6.8c0-2.9,2.4-5.2,5.2-5.2S12,3.9,12,6.8S9.6,12,6.8,12S1.5,9.6,1.5,6.8z'></path></svg>
-								<span data-loader='circles'><span></span><span></span><span></span></span>
-							</button>
-						  </span>
-				</div>
-			</form>
-			<div id='loading'><img src='$image'></img></div>
-			<div id='results' class='result small'></div>
-		</div>";
 
 		ob_start(); ?>
 
@@ -129,39 +112,38 @@ class Shortcode {
 				$custom_found_result_text     = __( 'Congratulations! <b>' . $url . '</b> is available!', 'check-domain' );
 				$custom_not_found_result_text = __( 'Sorry! <b>' . $url . '</b> is already taken!', 'check-domain' );
 
-				if ( true === $is_available ) {
-					$result = array(
-						'status' => 1,
-						'domain' => $url,
-						'text'   => '<div class="callout callout-success alert-success clearfix available">
+			if ( true === $is_available ) {
+				$result = array(
+					'status' => 1,
+					'domain' => $url,
+					'text'   => '<div class="callout callout-success alert-success clearfix available">
 								<div class="col-xs-10" style="padding-left:1px;text-align:left;">
 								<i class="glyphicon glyphicon-ok" style="margin-right:1px;"></i> ' . __( $custom_found_result_text, 'check-domain' ) . ' </div>
 								</div>',
-					);
-					echo wp_json_encode( $result );
-				} elseif ( false === $is_available ) {
-					$result = array(
-						'status' => 0,
-						'domain' => $url,
-						'text'   => '<div class="callout callout-danger alert-danger clearfix not-available">
+				);
+				echo wp_json_encode( $result );
+			} elseif ( false === $is_available ) {
+				$result = array(
+					'status' => 0,
+					'domain' => $url,
+					'text'   => '<div class="callout callout-danger alert-danger clearfix not-available">
 								<div class="col-xs-10" style="padding-left:1px;text-align:left;">
 								<i class="glyphicon glyphicon-remove" style="margin-right:1px;"></i> ' . __( $custom_not_found_result_text, 'check-domain' ) . '
 								</div>
 								</div>',
-					);
-					echo wp_json_encode( $result );
-				} else {
-					$result = array(
-						'status' => 0,
-						'domain' => $url,
-						'text'   => '<div class="callout callout-danger alert-danger clearfix not-available">
+				);
+				echo wp_json_encode( $result );
+			} else {
+				$result = array(
+					'status' => 0,
+					'domain' => $url,
+					'text'   => '<div class="callout callout-danger alert-danger clearfix not-available">
 								<div class="col-xs-10" style="padding-left:1px;text-align:left;">
 								<i class="glyphicon glyphicon-remove" style="margin-right:1px;"></i> ' . __( 'Domain is not valid', 'check-domain' ) . '
 								</div>
 								</div>',
-					);
-				}
-
+				);
+			}
 		} else {
 			echo 'Please enter the domain name';
 		}
